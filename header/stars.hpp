@@ -34,6 +34,8 @@ public:
 
     // Draw the regular stars.
     void drawStar();
+    void drawPlanet();
+    void drawLight();
 
     // Call drawStar();
     virtual void draw() {
@@ -49,21 +51,18 @@ public:
     Planet(GLfloat radius, GLfloat revolutionSpd, 
     GLfloat rotationSpd, GLfloat distance, GLfloat rgbColor[3], Star* parentStar);
 
-    void drawPlanet();
-
     virtual void draw() {
         drawPlanet();
         drawStar();
     }
 };
 
-class OurSun : public Planet {
+class OurSun : public Star {
 public:
     OurSun(GLfloat radius, GLfloat revolutionSpd, 
     GLfloat rotationSpd, GLfloat distance, GLfloat rgbColor[3], Star* parentStar);
 
     // Sun has light.
-    void drawLight();
 
     virtual void draw() {
         drawLight();
